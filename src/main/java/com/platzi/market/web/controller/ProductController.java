@@ -33,7 +33,7 @@ public class ProductController {
             @ApiResponse(code = 404, message = "Product not found"),
     })
     public ResponseEntity<Product> getProduct(@ApiParam(value = "The id of the product", required = true, example = "7")
-                                              @PathVariable("id") int productId) {
+                                                  @PathVariable("id") int productId) {
         return productService.getProduct(productId)
                 .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
